@@ -8,6 +8,9 @@
 # un-ignore makefiles (except the template)
 !*/makefile
 
+# hidden files
+\.*
+
 # ignore templates
 template.cpp
 /input.txt
