@@ -52,7 +52,6 @@ int main()
     vector<pii> moves = {{1, 1}, {3, 1}, {5, 1}, {7, 1}, {1, 2}};
     for (auto move : moves)
     {
-        cout << move.x << " " << move.y << " " << findSlope(move.x, move.y) << endl;
         ans *= findSlope(move.x, move.y);
     }
 
