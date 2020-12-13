@@ -6,11 +6,11 @@
 # un-ignore directories
 !*/
 # un-ignore makefiles (except the template)
-!*/makefile
+!C++/*/makefile
 
 # hidden files
 \.*
 
 # ignore templates
 template.cpp
-/input.txt
+C++/input.txt
