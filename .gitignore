@@ -1,10 +1,8 @@
 ## Ignore stuff without extensions (binaries)
 # ignore all
-*
+C++/*
 # unignore with extensions
-!*.*
-# un-ignore directories
-!*/
+!C++/*/*.*
 # un-ignore makefiles (except the template)
 !C++/*/makefile
 
@@ -12,5 +10,8 @@
 \.*
 
 # ignore templates
-template.cpp
+template.*
 C++/input.txt
+python/input.txt
+init
+initall
