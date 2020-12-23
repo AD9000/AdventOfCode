@@ -10,8 +10,4 @@ C++/*
 \.*
 
 # ignore templates
-template.*
 C++/input.txt
-python/input.txt
-init
-initall

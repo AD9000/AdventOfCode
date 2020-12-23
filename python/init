@@ -1,0 +1,57 @@
+#!/usr/bin/env python3
+import sys
+import shutil
+from pathlib import Path
+
+
+def usage():
+    print("./init <challenge name>")
+    exit(0)
+
+
+if len(sys.argv) < 2:
+    usage()
+
+name = sys.argv[1]
+force = False
+try:
+    i = sys.argv.index("-f")
+    force = True
+
+    # if exists, name should be the other one
+    # 01 ^ 11 -> 10, 10 ^ 11 -> 01
+    name = sys.argv[i ^ 3]
+
+except ValueError:
+    pass
+
+
+dest = Path(name)
+
+# create dir with name
+if not force and dest.exists():
+    print("directory already exists...")
+    exit(0)
+else:
+    dest.mkdir(exist_ok=True)
+
+# add makefile and input file
+# shutil.copy(Path("makefile"), dest)
+
+# with open(Path(dest).joinpath("makefile"), "a") as file:
+#     file.write("all: " + name)
+
+shutil.copy(Path("input.txt"), dest)
+shutil.copy(Path("template.py"), dest.joinpath("part1.py"))
+shutil.copy(Path("template.py"), dest.joinpath("part2.py"))
+
+# if template exists, create new file using that, otherwise empty-ish
+if Path("template.cpp").exists():
+    shutil.copy(Path("template.cpp"), dest.joinpath("part1.cpp"))
+    shutil.copy(Path("template.cpp"), dest.joinpath("part2.cpp"))
+    # dest.joinpath(
+    #         (name[0].lower() + name[1:] if len(name) > 1 else name) + ".cpp"
+    #     ),
+
+
+print("Done :)")
